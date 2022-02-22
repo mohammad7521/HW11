@@ -2,6 +2,7 @@ package A;
 
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
@@ -13,7 +14,10 @@ public class StreamA {
                 .collect(Collectors.groupingBy(String::length));
     }
 
+    public static void groupByLengthCount(Map<Integer,List<String>> mapLS) {
 
+
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -27,6 +31,7 @@ public class StreamA {
 
         System.out.println(groupByLength(nameList));
 
+        List<List<String>> lls= (List<List<String>>) groupByLength(nameList).values();
 
     }
 }

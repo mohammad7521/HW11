@@ -1,5 +1,7 @@
 package C.Models;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
 import java.util.Date;
 import java.util.List;
 
@@ -13,12 +15,14 @@ public class Order {
     private int CustomerID;
     private double totalPrice;
 
-    public Order(int id, List<Product> products, boolean isPaid, boolean delivered, int customerID) {
+    public Order(int id, Date orderDate, List<Product> products, boolean isPaid, boolean delivered, int customerID, double totalPrice) {
         this.id = id;
+        this.orderDate = orderDate;
         this.products = products;
         this.isPaid = isPaid;
         this.delivered = delivered;
         CustomerID = customerID;
+        this.totalPrice = totalPrice;
     }
 
     public int getId() {
@@ -27,6 +31,14 @@ public class Order {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Date getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
 
     public List<Product> getProducts() {
@@ -61,11 +73,22 @@ public class Order {
         CustomerID = customerID;
     }
 
-    public Date getOrderDate() {
-        return orderDate;
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
-}
+
+    @Override
+    public String toString() {
+        return "\nOrder{" +
+                "\nid=" + id +
+                "\norderDate=" + orderDate +
+                "\nproducts=" + products +
+                "\nisPaid=" + isPaid +
+                "\ndelivered=" + delivered +
+                "\nCustomerID=" + CustomerID +
+                "\ntotalPrice=" + totalPrice+"\n";}
+    }
